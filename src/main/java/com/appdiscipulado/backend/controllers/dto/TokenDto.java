@@ -1,4 +1,4 @@
-package com.appdiscipulado.backend.controllers;
+package com.appdiscipulado.backend.controllers.dto;
 
 import lombok.Getter;
 
