@@ -1,5 +1,6 @@
-package com.appdiscipulado.backend.domain;
+package com.appdiscipulado.backend.domain.VO;
 
+import com.appdiscipulado.backend.domain.Profile;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
