@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
 
 @Service
 @Transactional
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -28,6 +28,7 @@ public class UserService {
         userToBeInserted.setUserProfile(userDto.getProfile());
         return userToBeInserted;
     }
+
     private boolean emailExist(String email) {
         return userRepository.findByEmail(email) != null;
     }

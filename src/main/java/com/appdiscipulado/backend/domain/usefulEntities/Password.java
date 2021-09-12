@@ -1,7 +1,6 @@
 package com.appdiscipulado.backend.domain.usefulEntities;
 
 import com.appdiscipulado.backend.controllers.dto.UserDto;
-import com.appdiscipulado.backend.domain.VO.User;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
