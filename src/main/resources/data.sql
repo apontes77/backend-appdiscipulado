@@ -1,0 +1,1 @@
+INSERT INTO TB_USER (name, email, password) VALUES('sysdba', 'mail@mail.com', '$2a$10$dQU0iL.DfGjzTzMHKkqNv.LSR/7RBE6.JayTIcLU9QCz6zKygChMi');
