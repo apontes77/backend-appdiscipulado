@@ -5,7 +5,7 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Email implements ConstraintValidator<ValidEmail, String> {
+public abstract class Email implements ConstraintValidator<ValidEmail, String> {
 
     private Pattern pattern;
     private Matcher matcher;
@@ -16,10 +16,12 @@ public class Email implements ConstraintValidator<ValidEmail, String> {
     @Override
     public void initialize(ValidEmail constraintAnnotation) {
     }
+
     @Override
     public boolean isValid(String email, ConstraintValidatorContext context){
         return (validateEmail(email));
     }
+
     private boolean validateEmail(String email) {
         pattern = Pattern.compile(EMAIL_PATTERN.toString());
         matcher = pattern.matcher(email);

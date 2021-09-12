@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Arrays;
 
 @Service
 @Transactional
@@ -17,10 +18,15 @@ public class UserService {
 
     public User registerNewUserAccount(UserDto userDto) throws UserAlreadyExistException {
         if (emailExist(userDto.getEmail())) {
-            throw new UserAlreadyExistException("There is an account with that email address: "
+            throw new UserAlreadyExistException("Há uma conta com este endereço de email: "
               + userDto.getEmail());
         }
-        return userDto.convert(userRepository);
+        User userToBeInserted = new User();
+        userToBeInserted.setName(userDto.getName());
+        userToBeInserted.setEmail(userDto.getEmail());
+        userToBeInserted.setPassword(userDto.getPassword());
+        userToBeInserted.setUserProfile(userDto.getProfile());
+        return userToBeInserted;
     }
     private boolean emailExist(String email) {
         return userRepository.findByEmail(email) != null;

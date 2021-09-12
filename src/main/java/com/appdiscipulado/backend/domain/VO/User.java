@@ -1,14 +1,12 @@
 package com.appdiscipulado.backend.domain.VO;
 
-import com.appdiscipulado.backend.domain.Profile;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,13 +22,13 @@ public class User implements UserDetails {
     private String name;
     private String email;
     private String password;
-
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Profile> profiles = new ArrayList<>();
+    @Enumerated(EnumType.STRING)
+    @Column(length = 5)
+    private UserProfile userProfile;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return this.profiles;
+        return Arrays.asList(userProfile::getUserProfileIdentifier);
     }
 
     @Override

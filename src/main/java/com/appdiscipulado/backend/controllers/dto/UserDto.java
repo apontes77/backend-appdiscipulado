@@ -1,16 +1,13 @@
 package com.appdiscipulado.backend.controllers.dto;
 
-import com.appdiscipulado.backend.domain.Profile;
 import com.appdiscipulado.backend.domain.VO.User;
+import com.appdiscipulado.backend.domain.VO.UserProfile;
 import com.appdiscipulado.backend.domain.usefulEntities.PasswordMatches;
 import com.appdiscipulado.backend.domain.usefulEntities.ValidEmail;
-import com.appdiscipulado.backend.repositories.UserRepository;
 import lombok.Getter;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import java.util.Arrays;
-import java.util.Optional;
 
 @Getter
 @PasswordMatches
@@ -30,19 +27,12 @@ public class UserDto {
     private String matchingPassword;
     @NotNull
     @NotEmpty
-    private Profile profile;
+    private UserProfile profile;
 
     public UserDto(User user) {
+        this.name = user.getName();
         this.email = user.getEmail();
         this.password = user.getPassword();
-        this.profile = user.getProfiles().get(1);
-    }
-
-    public User convert(UserRepository userRepository) {
-        Optional<User> user = userRepository.findByEmail(email);
-        if(!user.isPresent()) {
-            return new User(null, name, email, password, Arrays.asList(profile));
-        }
-       throw new IllegalArgumentException("Dados incorretos para cadastro");
+        this.profile = user.getUserProfile();
     }
 }
