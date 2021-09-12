@@ -1,6 +1,6 @@
 package com.appdiscipulado.backend.config.security;
 
-import com.appdiscipulado.backend.domain.User;
+import com.appdiscipulado.backend.domain.VO.User;
 import com.appdiscipulado.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

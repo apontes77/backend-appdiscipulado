@@ -1,6 +1,6 @@
 package com.appdiscipulado.backend.domain.usefulEntities;
 
-import com.appdiscipulado.backend.controllers.dto.UserDTO;
+import com.appdiscipulado.backend.controllers.dto.UserDto;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -13,7 +13,7 @@ public class Password implements ConstraintValidator<PasswordMatches, Object> {
 
     @Override
     public boolean isValid(Object obj, ConstraintValidatorContext context) {
-        UserDTO user = (UserDTO) obj;
+        UserDto user = (UserDto) obj;
         return user.getPassword().equals(user.getMatchingPassword());
     }
 }

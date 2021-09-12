@@ -14,7 +14,7 @@ import java.util.Optional;
 
 @Getter
 @PasswordMatches
-public class UserDTO {
+public class UserDto {
     @NotNull
     @NotEmpty
     private String name;
@@ -32,7 +32,7 @@ public class UserDTO {
     @NotEmpty
     private Profile profile;
 
-    public UserDTO(User user) {
+    public UserDto(User user) {
         this.email = user.getEmail();
         this.password = user.getPassword();
         this.profile = user.getProfiles().get(1);

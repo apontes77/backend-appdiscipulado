@@ -1,6 +1,6 @@
 package com.appdiscipulado.backend.repositories;
 
-import com.appdiscipulado.backend.domain.User;
+import com.appdiscipulado.backend.domain.VO.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

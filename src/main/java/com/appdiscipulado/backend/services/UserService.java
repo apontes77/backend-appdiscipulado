@@ -1,6 +1,6 @@
 package com.appdiscipulado.backend.services;
 
-import com.appdiscipulado.backend.controllers.dto.UserDTO;
+import com.appdiscipulado.backend.controllers.dto.UserDto;
 import com.appdiscipulado.backend.controllers.exceptions.UserAlreadyExistException;
 import com.appdiscipulado.backend.domain.VO.User;
 import com.appdiscipulado.backend.repositories.UserRepository;
@@ -15,7 +15,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public User registerNewUserAccount(UserDTO userDto) throws UserAlreadyExistException {
+    public User registerNewUserAccount(UserDto userDto) throws UserAlreadyExistException {
         if (emailExist(userDto.getEmail())) {
             throw new UserAlreadyExistException("There is an account with that email address: "
               + userDto.getEmail());

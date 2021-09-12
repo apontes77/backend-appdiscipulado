@@ -1,5 +1,6 @@
 package com.appdiscipulado.backend.domain;
 
+import com.appdiscipulado.backend.domain.VO.UserProfile;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,10 +18,10 @@ public class Profile implements GrantedAuthority {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private UserProfile userProfile;
 
     @Override
     public String getAuthority() {
-        return name;
+        return userProfile.getUserProfileIdentifier();
     }
 }
